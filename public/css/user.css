@@ -1,0 +1,28 @@
+    body {
+        background-color: #EBD3F8;
+    }
+
+    .navbar-custom {
+        background-color: #2E073F;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .navbar-custom .nav-link {
+        color: #EBD3F8;
+        transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+        color: #AD49E1;
+    }
+
+    .logo-icon {
+        color: #AD49E1;
+        font-size: 1.4rem;
+    }
+
+    .navbar-toggler {
+        border: none;
+        filter: invert(100%);
+    }

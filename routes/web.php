@@ -7,6 +7,7 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\KoleksiController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\UserController;
 
 Route::get('/admin', [AuthController::class, 'index'])->name('index');
 Route::post('/admin/login', [AuthController::class, 'login'])->name('proses.login');
@@ -55,3 +56,11 @@ Route::post('/admin/kegiatan/store', [KegiatanController::class, 'store'])->name
 Route::get('/admin/kegiatan/edit/{id}', [KegiatanController::class, 'edit'])->name('kegiatan.edit');
 Route::put('/admin/kegiatan/update/{id}', [KegiatanController::class, 'update'])->name('kegiatan.update');
 Route::delete('/admin/kegiatan/delete/{id}', [KegiatanController::class, 'destroy'])->name('kegiatan.delete');
+
+
+Route::get('/', [UserController::class, 'beranda'])->name('home');
+Route::get('/daftarBuku', [UserController::class, 'buku'])->name('daftar.buku');
+Route::get('/kegiatan', [UserController::class, 'kegiatan'])->name('kegiatan');
+Route::get('/detailKegiatan/{id}', [UserController::class, 'detail'])->name('detail.kegiatan.user');
+Route::get('/koleksiKhusus', [UserController::class, 'koleksi'])->name('koleksi.khusus.user');
+Route::get('/kritik_saran', [UserController::class, 'kritik'])->name('kritik.saran');
