@@ -70,6 +70,16 @@
                         <i class="fas fa-calendar-days"></i>  Kegiatan
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.kritik.saran') }}">
+                        <i class="fas fa-message"></i>  Kritik & Saran
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-danger" style="width: 100%" href="{{ route('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
             </ul>
         </div>
 

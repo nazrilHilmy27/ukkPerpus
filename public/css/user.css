@@ -1,9 +1,15 @@
     body {
-        background-color: #EBD3F8;
+        background-color: #f6f3f8;
     }
 
     .navbar-custom {
-        background-color: #2E073F;
+        background: linear-gradient(
+            to right,
+            rgba(74, 3, 117, 0.9),
+            rgba(160, 32, 240, 0.85)
+        );
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.479);
         padding-top: 0.4rem;
         padding-bottom: 0.4rem;
     }
@@ -14,7 +20,7 @@
     }
 
     .nav-link:hover {
-        color: #AD49E1;
+        color: #c483e7;
     }
 
     .logo-icon {

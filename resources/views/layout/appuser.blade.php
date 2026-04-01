@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user.css') }}">
+    {{-- data table --}}
+    <link rel="stylesheet" href="{{ asset('DataTables/datatables.css') }}">
+    <link rel="stylesheet" href="{{ asset('DataTables/datatables.min.css') }}">
 
     @yield('style')
 </head>
@@ -59,10 +62,13 @@
 
 
     @yield('content')
-    @yield('script')
+    <!-- Scripts -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('DataTables/datatables.js') }}"></script>
+    <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
+    @yield('script')
 </body>
 
 </html>

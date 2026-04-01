@@ -3,8 +3,8 @@
 @section('style')
 <style>
     .hero-koleksi {
-        height: 45vh;
-        background: url('https://i.pinimg.com/736x/fd/c7/57/fdc757167e8cdf1b64464dab4d926926.jpg') center/cover no-repeat;
+        height: 300px;
+        background: url('{{ asset('img/gambar3.jpg') }}') center/cover no-repeat;
         position: relative;
     }
 
@@ -12,7 +12,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(46, 7, 63, 0.85), rgba(46, 7, 63, 0.3));
+        background: linear-gradient(to top, rgba(46, 7, 63, 0.425), rgba(46, 7, 63, 0.3));
     }
 
     .hero-text {
@@ -73,8 +73,7 @@
         border-radius: 8px;
     }
     .footer-dark {
-        background-color: #2a0740;
-        /* ungu gelap seperti gambar */
+        background-color: #4a0375; 
         font-family: 'Inter', sans-serif;
     }
 
@@ -95,10 +94,8 @@
         <p>Akses berbagai koleksi khusus di perpustakaan kami.</p>
     </div>
 </div>
-<div class="container py-4">
-    <h1 class="fw-bold mb-3">
-        Koleksi Khusus
-    </h1>
+<div class="container py-5">
+    <h2 class="fw-bold text-center mb-4">Koleksi Khusus</h2>
     <div class="row g-4">
         @foreach ($koleksi as $k)
         <div class="col-md-4">
@@ -157,6 +154,10 @@
 
         </div>
         @endforeach
+        <!-- Paginate -->
+        <div class="mt-5">
+            {{ $koleksi->links('pagination::bootstrap-5') }}
+        </div>
     </div>
 </div>
 @foreach ($koleksi as $k)

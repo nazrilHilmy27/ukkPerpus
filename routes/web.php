@@ -8,6 +8,7 @@ use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\KoleksiController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KritikController;
 
 Route::get('/admin', [AuthController::class, 'index'])->name('index');
 Route::post('/admin/login', [AuthController::class, 'login'])->name('proses.login');
@@ -28,6 +29,7 @@ Route::delete('/admin/dataPeminjam/delete/{id}', [PeminjamanController::class, '
 Route::get('admin/dataPengunjung', [PengunjungController::class, 'showDataPengunjung'])->name('data.pengunjung');
 Route::get('admin/dataPengunjung/create', [PengunjungController::class, 'create'])->name('pengunjung.create');
 Route::post('admin/dataPengunjung/store', [PengunjungController::class, 'store'])->name('pengunjung.store');
+Route::post('admin/dataPengunjung/store/user', [PengunjungController::class, 'storeUser'])->name('pengunjung.store.user');
 Route::get('admin/dataPengunjung/edit/{id}', [PengunjungController::class, 'edit'])->name('pengunjung.edit');
 Route::put('admin/dataPengunjung/update/{id}', [PengunjungController::class, 'update'])->name('pengunjung.update');
 Route::delete('admin/dataPengunjung/delete/{id}', [PengunjungController::class, 'destroy'])->name('pengunjung.delete');
@@ -57,10 +59,17 @@ Route::get('/admin/kegiatan/edit/{id}', [KegiatanController::class, 'edit'])->na
 Route::put('/admin/kegiatan/update/{id}', [KegiatanController::class, 'update'])->name('kegiatan.update');
 Route::delete('/admin/kegiatan/delete/{id}', [KegiatanController::class, 'destroy'])->name('kegiatan.delete');
 
-
+// User
 Route::get('/', [UserController::class, 'beranda'])->name('home');
 Route::get('/daftarBuku', [UserController::class, 'buku'])->name('daftar.buku');
 Route::get('/kegiatan', [UserController::class, 'kegiatan'])->name('kegiatan');
 Route::get('/detailKegiatan/{id}', [UserController::class, 'detail'])->name('detail.kegiatan.user');
 Route::get('/koleksiKhusus', [UserController::class, 'koleksi'])->name('koleksi.khusus.user');
 Route::get('/kritik_saran', [UserController::class, 'kritik'])->name('kritik.saran');
+Route::get('/daftar_anggota', [UserController::class, 'daftar'])->name('daftar.anggota');
+
+
+Route::get('/admin/kritik_saran/', [KritikController::class, 'index'])->name('admin.kritik.saran');
+Route::post('/admin/kritik_saran/store', [KritikController::class, 'store'])->name('kritik.saran.store');
+Route::get('/admin/kritik_saran/detail/{id}', [KritikController::class, 'detail'])->name('kritik.saran.detail');
+Route::delete('/admin/kritik_saran/delete/{id}', [KritikCOntroller::class, 'destroy'])->name('kritik.saran.delete');

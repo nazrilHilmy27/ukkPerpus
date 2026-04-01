@@ -10,21 +10,6 @@
 @endsection
 
 @section('content')
-        <div class="dropdown mb-3">
-            <button class="btn btn-primary dropdown-toggle w-25 " id="dropdownKategori" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Pilih Kategori
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" data-value="" href="#">Semua Kategori</a></li>
-                <li><a class="dropdown-item" data-value="Fiksi" href="#">Fiksi</a></li>
-                <li><a class="dropdown-item" data-value="Non-Fiksi" href="#">Non-Fiksi</a></li>
-                <li><a class="dropdown-item" data-value="Pendidikan" href="#">Pendidikan</a></li>
-                <li><a class="dropdown-item" data-value="Sains & Teknologi" href="#">Sains & Teknologi</a></li>
-                <li><a class="dropdown-item" data-value="Sejarah" href="#">Sejarah</a></li>
-                <li><a class="dropdown-item" data-value="Agama" href="#">Agama</a></li>
-                <li><a class="dropdown-item" data-value="Anak" href="#">Anak</a></li>
-                <li><a class="dropdown-item" data-value="Kesehatan & Olahraga" href="#">Kesehatan & Olahraga</a></li>
-        </div>
     @if (session('success'))
     <div class="alert alert-success mb-2 w-100">{{ session('success') }}</div>
     @endif
@@ -98,34 +83,8 @@
             }
         });
     });
-    // filter dropdown
-    const dropdownItems = document.querySelectorAll(".dropdown-item");
-    const dropdownButton = document.getElementById("dropdownKategori");
-    const rows = document.querySelectorAll("table tbody tr");
+   
 
-    dropdownItems.forEach(item => {
-        item.addEventListener("click", function(e) {
-            e.preventDefault();
-
-            const kategoriDipilih = this.getAttribute("data-value").toLowerCase();
-            const textTombol = this.textContent.trim();
-            if(dropdownButton) dropdownButton.textContent = textTombol;
-            if(kategoriDipilih === "") {
-                dropdownButton.textContent = "Pilih Kategori";
-            }
-            
-
-            rows.forEach(row => {
-                const kategori = row.cells[4].textContent.toLowerCase();
-
-                if (kategoriDipilih === "" || kategori === kategoriDipilih) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-            });
-        });
-    });
     $(document).ready(function () {
         $('#my-table').DataTable({
             responsive: true,

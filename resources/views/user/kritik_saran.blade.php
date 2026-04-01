@@ -3,15 +3,15 @@
 @section('style')
     <style>
         .hero-ks{
-            height: 45vh;
-            background: url('https://i.pinimg.com/736x/fd/c7/57/fdc757167e8cdf1b64464dab4d926926.jpg') center/cover no-repeat;
+            height: 300px;
+            background: url('{{ asset('img/gambar3.jpg') }}') center/cover no-repeat;
             position: relative;
         }
         .hero-ks::after{
             content: "";
             position:absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(46, 7, 63, 0.85), rgba(46, 7, 63, 0.3));
+            inset: 0; /* podo bae ne top left bottom right  */
+            background: linear-gradient(to top, rgba(46, 7, 63, 0.493), rgba(46, 7, 63, 0.24));
         }
         .hero-text{
             position: absolute;
@@ -28,20 +28,25 @@
             border-radius: 8px;
             border: none;
         }
+        .container form {
+            max-width: 70%;
+        }
         .footer-dark {
-        background-color: #2a0740;
-        /* ungu gelap seperti gambar */
-        font-family: 'Inter', sans-serif;
-    }
+            background-color: #4a0375; 
+            font-family: 'Inter', sans-serif;
+        }
 
-    .footer-link {
-        color: #dcd2e8;
-        text-decoration: none;
-    }
+        .footer-link {
+            color: #dcd2e8;
+            text-decoration: none;
+        }
 
-    .footer-link:hover {
-        color: white;
-    }
+        .footer-link:hover {
+            color: white;
+        }
+        .alert {
+            max-width: 70%;
+        }
     </style>
 @endsection
 @section('content')
@@ -53,7 +58,10 @@
     </div>
 
     <div class="container py-5 mt-4">
-        <form action="" class="m-auto card shadow p-5" style="width: 600px">
+        @if (session('success'))
+            <div class="alert alert-success mb-2 m-auto">{{ session('success') }}</div>
+        @endif
+        <form action="{{route('kritik.saran.store')}}" method="POST" class="m-auto card shadow p-5" >
             @csrf
 
             <h2 class="text-center mb-4">Kritik & Saran</h2>

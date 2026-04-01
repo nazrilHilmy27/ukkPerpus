@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4">
-                <h4 class="fw-bold text-primary mb-3 text-center">{{ $b->judul }}</h4>
+                <h4 class="fw-bold text-primary mb-3 text-center"><i class="fas fa-book-open"></i> {{ $b->judul }}</h4>
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <div class="d-flex align-items-center p-2 rounded-3 shadow-sm border-0">

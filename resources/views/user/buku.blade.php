@@ -4,8 +4,8 @@
 @section('style')
 <style>
     .hero-buku {
-        height: 45vh;
-        background: url('https://i.pinimg.com/1200x/dc/5c/71/dc5c71d5913b2ca2b12b993a355c136a.jpg') center/cover no-repeat;
+        height: 300px;
+        background: url('{{ asset('img/gambar1.jpg') }}') center/cover no-repeat;
         position: relative;
     }
 
@@ -13,13 +13,14 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(46, 7, 63, 0.85), rgba(46, 7, 63, 0.3));
+        background: linear-gradient(to top, rgba(27, 3, 37, 0.541) 20%, rgba(46, 7, 63, 0.123));
     }
 
     .hero-text {
         position: absolute;
         bottom: 20%;
         color: #f6e7ff;
+        z-index: 5;
         text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
     }
 
@@ -36,8 +37,7 @@
     }
 
     .footer-dark {
-        background-color: #2a0740;
-        /* ungu gelap seperti gambar */
+        background-color: #4a0375; 
         font-family: 'Inter', sans-serif;
     }
 
@@ -77,10 +77,10 @@
                 <option value="Fiksi">Fiksi</option>
                 <option value="Non-Fiksi">Non-Fiksi</option>
                 <option value="Pendidikan">Pendidikan</option>
-                <option value="Teknologi">Sains & Teknologi</option>
+                <option value="Sains & Teknologi">Sains & Teknologi</option>
                 <option value="Sejarah">Sejarah</option>
-                <option value="Sains">Agama</option>
-                <option value="Agama">Anak</option>
+                <option value="Agama">Agama</option>
+                <option value="Anak">Anak</option>
                 <option value="Kesehatan & Olahraga">Kesehatan & Olahraga</option>
 
             </select>
@@ -150,5 +150,24 @@
         });
     });
 
+    
+    $(document).ready(function () {
+        $('#bookTable').DataTable({
+            searching: false,
+            responsive: true,
+            language: {
+                lengthMenu: "Menampilkan _MENU_ data",
+                info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                zeroRecords: "Data tidak ditemukan",
+                emptyTable: "Belum ada data yang tersedia",
+                paginate: {
+                    first: "<<",
+                    last: ">>",
+                    next: ">",
+                    previous: "<",
+                },
+            },
+        });
+    });
 </script>
 @endsection

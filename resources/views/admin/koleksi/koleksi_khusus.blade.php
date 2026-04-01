@@ -1,6 +1,9 @@
 @extends('layout.appadmin')
 @section('title', 'Koleksi Khusus')
 @section('content')
+@if (session('success'))
+    <div class="alert alert-success">{{session('success')}}</div>
+@endif
 <div class="card border-0 rounded-5 shadow-lg">
     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
         <h5 class="mb-0"><i class="fas fa-folder-open"></i> Koleksi Khusus</h5>

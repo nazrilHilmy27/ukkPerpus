@@ -4,7 +4,12 @@
 
 @section('styles')
 <style>
-
+    .center-page {
+        min-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .profile-card {
         background: #fff;
@@ -79,7 +84,8 @@
 @endsection
 
 @section('content')
-    <div class="profile-card m-auto">
+<div class="center-page">
+    <div class="profile-card ">
         <!-- Header Profil -->
         <div class="profile-header">
             <div class="avatar" id="avatarUser">NH</div>
@@ -101,72 +107,14 @@
             <li><strong>Alamat:</strong> <span id="alamatUser">{{ $data['alamat'] }}</span></li>
         </ul>
 
-        <!-- Aktivitas Terakhir -->
-        <h5 class="mt-4 mb-3 text-primary fw-bold">
-            <i class="fas fa-clock"></i> Aktivitas Terakhir
-        </h5>
-        <div class="accordion" id="activityAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                        Hari Ini
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#activityAccordion">
-                    <div class="accordion-body">
-                        <ul>
-                            <li>Menambahkan data buku: <em>Belajar Laravel</em></li>
-                            <li>Mengupdate profil karyawan</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                        Kemarin
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#activityAccordion">
-                    <div class="accordion-body">
-                        <ul>
-                            <li>Menambahkan data peminjaman</li>
-                            <li>Menghapus data karyawan</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Tombol -->
         <div class="text-center mt-4">
-            <button class="btn btn-primary px-4 py-2" id="editBtn">
-                <i class="fas fa-edit"></i> Edit Profil
-            </button>
-            <a href="{{ route('logout') }}" class="btn btn-outline-danger px-4 py-2 ms-2" id="logoutBtn">
+            
+            <a href="{{ route('logout') }}" class="btn btn-outline-danger px-4 py-2 ms-2 w-25">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </a>
         </div>
     </div>
+</div>
 @endsection
 
-@section('scripts')
-<script>
-     // contoh interaksi: edit profil
-    document.getElementById("editBtn").addEventListener("click", function () {
-        alert("Fitur Edit Profil masih dalam pengembangan 🚀");
-    });
-
-    // contoh interaksi: logout
-    document.getElementById("logoutBtn").addEventListener("click", function () {
-        if (confirm("Yakin ingin logout?")) {
-            window.location.href = "/logout";
-        }
-    });
-
-    // Tooltip Bootstrap
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el))
-
-</script>
-@endsection

@@ -13,6 +13,9 @@
     </li>
  </ul>
  <div class="tab-content mt-3">
+    @if (session('success'))
+        <div class="alert alert-success w-100 mb-3">{{session('success')}}</div>
+    @endif
     {{-- kegiatan aktif --}}
     <div class="tab-pane fade show active" id="aktif">
         <div class="card">
@@ -24,7 +27,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped hover" id="myTable">
+                    <table class="table table-bordered table-striped hover datatable">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -76,7 +79,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped hover" id="myTable">
+                    <table class="table table-bordered table-striped hover datatable">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -127,7 +130,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped hover" id="myTable2">
+                    <table class="table table-bordered table-striped hover datatable">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -183,6 +186,24 @@
             } else {
                 link.classList.remove("active-nav");
             }
+        });
+    });
+    $(document).ready(function () {
+        $('.datatable').DataTable({
+            responsive: true,
+            language: {
+                search: "Cari:",
+                lengthMenu: "Menampilkan _MENU_ data",
+                info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                zeroRecords: "Data tidak ditemukan",
+                emptyTable: "Belum ada data kegiatan di kategori ini",
+                paginate: {
+                    first: "<<",
+                    last: ">>",
+                    next: ">",
+                    previous: "<",
+                },
+            },
         });
     });
 </script>

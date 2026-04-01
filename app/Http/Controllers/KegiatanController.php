@@ -63,11 +63,11 @@ class KegiatanController extends Controller
         $data = [
             'nama_kegiatan' => ucwords(strtolower($request->nama_kegiatan)),
             'kategori' => $request->kategori,
-            'lokasi' => ucfirst(strtolower($request->lokasi)),
-            'ruangan' => ucfirst(strtolower($request->ruangan)),
+            'lokasi' => $request->lokasi,
+            'ruangan' => $request->ruangan,
             'tanggal_mulai' => $request->tanggal_mulai,
             'tanggal_selesai' => $request->tanggal_selesai,
-            'deskripsi' => ucfirst(strtolower($request->deskripsi)),
+            'deskripsi' => $request->deskripsi,
             'gambar' => $filename
         ];
         DB::table('kegiatan')->insert($data);
@@ -111,11 +111,11 @@ class KegiatanController extends Controller
         $data = [
             'nama_kegiatan' => ucwords(strtolower($request->nama_kegiatan)),
             'kategori' => $request->kategori,
-            'lokasi' => ucwords(strtolower($request->lokasi)),
-            'ruangan' => ucwords(strtolower($request->ruangan)),
+            'lokasi' => $request->lokasi,
+            'ruangan' => $request->ruangan,
             'tanggal_mulai' => $request->tanggal_mulai,
             'tanggal_selesai' => $request->tanggal_selesai,
-            'deskripsi' => ucfirst(strtolower($request->deskripsi)),
+            'deskripsi' => $request->deskripsi,
             'gambar' => $filename
         ];
         DB::table('kegiatan')->where('id', $id)->update($data);

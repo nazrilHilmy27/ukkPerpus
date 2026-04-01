@@ -36,10 +36,13 @@ class UserController extends Controller
         return view('user.detailKegiatan', compact('kegiatan'));
     }
     public function koleksi(){
-        $koleksi = DB::table('koleksi_khusus')->get();
+        $koleksi = DB::table('koleksi_khusus')->paginate(6);
         return view('user.koleksi_khusus', compact('koleksi'));
     }
     public function kritik(){
         return view('user.kritik_saran');
+    }
+    public function daftar() {
+        return view('user.daftar_anggota');
     }
 }
